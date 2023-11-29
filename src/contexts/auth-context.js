@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 const HANDLERS = {
   INITIALIZE: 'INITIALIZE',
   SIGN_IN: 'SIGN_IN',
+  SIGN_IN_WITH_GOOGLE: 'SIGN_IN_WITH_GOOGLE',
   SIGN_OUT: 'SIGN_OUT'
+
 };
 
 const initialState = {
@@ -42,6 +44,14 @@ const handlers = {
       user
     };
   },
+  [HANDLERS.SIGN_IN_WITH_GOOGLE]: (state, action) => {
+    const user = action.payload;
+    return {
+      ...state,
+      isAuthenticated: true,
+      user
+    };
+  },
   [HANDLERS.SIGN_OUT]: (state) => {
     return {
       ...state,
@@ -58,6 +68,20 @@ const reducer = (state, action) => (
 // The role of this context is to propagate authentication state through the App tree.
 
 export const AuthContext = createContext({ undefined });
+
+// Example function to fetch user information using the access token
+ const fetchGoogleUserInfo= async({access_token,token_type})=>{
+  const response = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+    method:'get',
+    headers: {
+      Authorization: `${token_type} ${access_token}`,
+    },
+  });
+
+  const userData = await response.json();
+  return userData;
+}
+
 
 export const AuthProvider = (props) => {
   const { children } = props;
@@ -151,6 +175,40 @@ export const AuthProvider = (props) => {
     });
   };
 
+const signInWithGoogle = async (Credential)=>{
+  console.log({Credential})
+  if (!Credential) {
+    throw new Error('Faild google auth');
+  }
+
+  try {
+    const googleUser= await fetchGoogleUserInfo(Credential);
+   
+const user = {
+    id: googleUser.sub,
+    avatar: googleUser.picture,
+    name: googleUser.name,
+    email: googleUser.email
+  };
+
+    dispatch({
+      type: HANDLERS.SIGN_IN_WITH_GOOGLE,
+      payload: user
+    });
+    // window.sessionStorage.setItem('authenticated', 'true');
+  } catch (err) {
+    console.error(err);
+  }
+
+  // const user = {
+  //   id: '5e86809283e28b96d2d38537',
+  //   avatar: '/assets/avatars/avatar-anika-visser.png',
+  //   name: 'Anika Visser',
+  //   email: 'anika.visser@devias.io'
+  // };
+
+ 
+}
   const signUp = async (email, name, password) => {
     throw new Error('Sign up is not implemented');
   };
@@ -167,6 +225,7 @@ export const AuthProvider = (props) => {
         ...state,
         skip,
         signIn,
+        signInWithGoogle,
         signUp,
         signOut
       }}

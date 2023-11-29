@@ -8,15 +8,15 @@ import { styled } from '@mui/material/styles';
 import { useAuth } from 'src/hooks/use-auth';
 
 export const AccountPopover = (props) => {
-  const { anchorEl, onClose, open } = props;
+  const { anchorEl, onClose, open,user } = props;
   const router = useRouter();
   const auth = useAuth();
 
   const handleSignOut = useCallback(
     () => {
       onClose?.();
-      auth.signOut();
       router.push('/auth/login');
+      auth.signOut();
     },
     [onClose, auth, router]
   );
@@ -53,7 +53,7 @@ export const AccountPopover = (props) => {
           color="text.secondary"
           variant="body2"
         >
-         Cool Guy
+        {user?.name}
         </Typography>
       </Box>
       <Divider />

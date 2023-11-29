@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -18,11 +18,18 @@ import {
 } from '@mui/material';
 import { useAuth } from 'src/hooks/use-auth';
 import { Layout as AuthLayout } from 'src/layouts/auth/layout';
+import { ButtonBaseCustom } from 'src/components/buttonbase-custom';
+import { GoogleIcon } from 'public/assets/logos/google-icon';
+import { signIn } from 'next-auth/react';
+import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import { useSearchParams, useRouter } from "next/navigation";
 
 const Page = () => {
   const router = useRouter();
   const auth = useAuth();
   const [method, setMethod] = useState('email');
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/profile";
   const formik = useFormik({
     initialValues: {
       email: 'demo@devias.io',
@@ -51,6 +58,26 @@ const Page = () => {
       }
     }
   });
+// const  HandleGoogleSignIn = async (credentialResponse)=>{
+
+//   try {
+//     await auth.signInWithGoogle(credentialResponse);
+//     router.push('/');
+//   } catch (err) {
+//    console.log(err)
+//   }
+// }
+
+const HandleGoogleSignIn = useGoogleLogin({
+  onSuccess: async (tokenResponse) => {
+      try {
+    await auth.signInWithGoogle(tokenResponse);
+    router.push('/');
+  } catch (err) {
+   console.log(err)
+  }
+  },
+})
 
   const handleMethodChange = useCallback(
     (event, value) => {
@@ -179,6 +206,22 @@ const Page = () => {
                 >
                   Continue
                 </Button>
+                <ButtonBaseCustom
+                  icon={<GoogleIcon />}
+                  title="Continue with Google"
+                  // onClick={() => signIn("google", { callbackUrl })}
+                  handleOnclick={() => HandleGoogleSignIn()}
+                />
+                {/* <GoogleLogin
+                  onSuccess={credentialResponse => {
+
+                    HandleGoogleSignIn(credentialResponse)
+                    console.log(credentialResponse);
+                  }}
+                  onError={() => {
+                    console.log('Login Failed');
+                  }}
+                />; */}
                 <Button
                   fullWidth
                   size="large"

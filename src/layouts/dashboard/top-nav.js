@@ -16,7 +16,7 @@ import {
 import { alpha } from '@mui/material/styles';
 import { usePopover } from 'src/hooks/use-popover';
 import { AccountPopover } from './account-popover';
-
+import { useAuth } from 'src/hooks/use-auth';
 const SIDE_NAV_WIDTH = 280;
 const TOP_NAV_HEIGHT = 64;
 
@@ -24,7 +24,7 @@ export const TopNav = (props) => {
   const { onNavOpen } = props;
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
   const accountPopover = usePopover();
-
+ const user= useAuth().user;
   return (
     <>
       <Box
@@ -112,6 +112,7 @@ export const TopNav = (props) => {
         </Stack>
       </Box>
       <AccountPopover
+        user={user}
         anchorEl={accountPopover.anchorRef.current}
         open={accountPopover.open}
         onClose={accountPopover.handleClose}
