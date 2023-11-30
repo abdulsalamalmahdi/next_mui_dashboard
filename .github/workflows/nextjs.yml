@@ -29,8 +29,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      NEXT_PUBLIC_CLIENT_ID: ${{secrets.NEXT_PUBLIC_CLIENT_ID}}
-      NEXT_PUBLIC_CLIENT_SECRET: ${{secrets.NEXT_PUBLIC_CLIENT_SECRET}}
+      NEXT_PUBLIC_CLIENT_ID: ${{vars.NEXT_PUBLIC_CLIENT_ID}}
+      NEXT_PUBLIC_CLIENT_SECRET: ${{vars.NEXT_PUBLIC_CLIENT_SECRET}}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
