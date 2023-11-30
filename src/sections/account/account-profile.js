@@ -9,6 +9,8 @@ import {
   Typography
 } from '@mui/material';
 
+const PREFIX = process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':'';
+
 const user = {
   avatar: `${PREFIX}/avatars/avatar-anika-visser.png`,
   city: 'Los Angeles',
