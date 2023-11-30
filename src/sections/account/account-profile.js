@@ -8,15 +8,16 @@ import {
   Divider,
   Typography
 } from '@mui/material';
-
+import { useAuth } from 'src/hooks/use-auth';
 const PREFIX = process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':'';
 
+const userojb = useAuth().user
 const user = {
-  avatar: `${PREFIX}assets/avatars/avatar-anika-visser.png`,
+  avatar: `${PREFIX}/assets/avatars/avatar-anika-visser.png`,
   city: 'Los Angeles',
   country: 'USA',
   jobTitle: 'Senior Developer',
-  name: 'Anika Visser',
+  name: userojb.name,
   timezone: 'GTM-7'
 };
 
