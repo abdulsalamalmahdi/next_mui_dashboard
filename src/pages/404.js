@@ -3,6 +3,9 @@ import NextLink from 'next/link';
 import ArrowLeftIcon from '@heroicons/react/24/solid/ArrowLeftIcon';
 import { Box, Button, Container, SvgIcon, Typography } from '@mui/material';
 
+
+const PREFIX = process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':'';
+
 const Page = () => (
   <>
     <Head>
@@ -35,7 +38,7 @@ const Page = () => (
           >
             <img
               alt="Under development"
-              src="/assets/errors/error-404.png"
+              src={`${PREFIX}/assets/errors/error-404.png`}
               style={{
                 display: 'inline-block',
                 maxWidth: '100%',

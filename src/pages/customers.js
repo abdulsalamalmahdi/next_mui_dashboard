@@ -24,7 +24,7 @@ const data = [
       state: 'Ohio',
       street: '2849 Fulton Street'
     },
-    avatar: `${PREFIX}/avatars/avatar-carson-darrin.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-carson-darrin.png`,
     createdAt: subDays(subHours(now, 7), 1).getTime(),
     email: 'carson.darrin@devias.io',
     name: 'Carson Darrin',
@@ -38,7 +38,7 @@ const data = [
       state: 'Georgia',
       street: '1865  Pleasant Hill Road'
     },
-    avatar: `${PREFIX}/avatars/avatar-fran-perez.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-fran-perez.png`,
     createdAt: subDays(subHours(now, 1), 2).getTime(),
     email: 'fran.perez@devias.io',
     name: 'Fran Perez',
@@ -52,7 +52,7 @@ const data = [
       state: 'Ohio',
       street: '4894  Lakeland Park Drive'
     },
-    avatar: `${PREFIX}/avatars/avatar-jie-yan-song.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-jie-yan-song.png`,
     createdAt: subDays(subHours(now, 4), 2).getTime(),
     email: 'jie.yan.song@devias.io',
     name: 'Jie Yan Song',
@@ -66,7 +66,7 @@ const data = [
       name: 'Anika Visser',
       street: '4158  Hedge Street'
     },
-    avatar: `${PREFIX}/avatars/avatar-anika-visser.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-anika-visser.png`,
     createdAt: subDays(subHours(now, 11), 2).getTime(),
     email: 'anika.visser@devias.io',
     name: 'Anika Visser',
@@ -80,7 +80,7 @@ const data = [
       state: 'California',
       street: '75247'
     },
-    avatar: `${PREFIX}/avatars/avatar-miron-vitold.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-miron-vitold.png`,
     createdAt: subDays(subHours(now, 7), 3).getTime(),
     email: 'miron.vitold@devias.io',
     name: 'Miron Vitold',
@@ -94,7 +94,7 @@ const data = [
       state: 'California',
       street: '317 Angus Road'
     },
-    avatar: `${PREFIX}/avatars/avatar-penjani-inyene.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-penjani-inyene.png`,
     createdAt: subDays(subHours(now, 5), 4).getTime(),
     email: 'penjani.inyene@devias.io',
     name: 'Penjani Inyene',
@@ -108,7 +108,7 @@ const data = [
       state: 'Nevada',
       street: '2188  Armbrester Drive'
     },
-    avatar: `${PREFIX}/avatars/avatar-omar-darboe.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-omar-darboe.png`,
     createdAt: subDays(subHours(now, 15), 4).getTime(),
     email: 'omar.darobe@devias.io',
     name: 'Omar Darobe',
@@ -122,7 +122,7 @@ const data = [
       state: 'California',
       street: '1798  Hickory Ridge Drive'
     },
-    avatar: `${PREFIX}/avatars/avatar-siegbert-gottfried.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-siegbert-gottfried.png`,
     createdAt: subDays(subHours(now, 2), 5).getTime(),
     email: 'siegbert.gottfried@devias.io',
     name: 'Siegbert Gottfried',
@@ -136,7 +136,7 @@ const data = [
       state: 'Utah',
       street: '3934  Wildrose Lane'
     },
-    avatar: `${PREFIX}/avatars/avatar-iulia-albu.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-iulia-albu.png`,
     createdAt: subDays(subHours(now, 8), 6).getTime(),
     email: 'iulia.albu@devias.io',
     name: 'Iulia Albu',
@@ -150,7 +150,7 @@ const data = [
       state: 'Utah',
       street: '368 Lamberts Branch Road'
     },
-    avatar: `${PREFIX}/avatars/avatar-nasimiyu-danai.png`,
+    avatar: `${PREFIX}/assets/avatars/avatar-nasimiyu-danai.png`,
     createdAt: subDays(subHours(now, 1), 9).getTime(),
     email: 'nasimiyu.danai@devias.io',
     name: 'Nasimiyu Danai',

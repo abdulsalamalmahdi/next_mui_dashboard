@@ -20,6 +20,9 @@ import { useAuth } from 'src/hooks/use-auth';
 const SIDE_NAV_WIDTH = 280;
 const TOP_NAV_HEIGHT = 64;
 
+
+const PREFIX = process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':'';
+
 export const TopNav = (props) => {
   const { onNavOpen } = props;
   const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
@@ -106,7 +109,7 @@ export const TopNav = (props) => {
                 height: 40,
                 width: 40
               }}
-              src="/assets/avatars/cool-guy.png"
+              src={`${PREFIX}/assets/avatars/cool-guy.png`}
             />
           </Stack>
         </Stack>
