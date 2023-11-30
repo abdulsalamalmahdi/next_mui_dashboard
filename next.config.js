@@ -27,18 +27,29 @@ const isDev = process.env.NODE_ENV !== "production";
 // }]
 // )
 
-const nextConfig = {
-  reactStrictMode: true,
-  output:"export",
-  basePath: process.env.NODE_ENV === 'production' ? "/next_mui_dashboard" : undefined,
 
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/next_mui_dashboard/':null, // assetPrefix requires the trailing slash
-  images:{
-    unoptimized: true,
-  }, 
-}
+// const defaultConfig = {};
 
-module.exports =(_phase, {defaultConfig})=>{
-  const plugins = [withImages]
-  return plugins.reduce((acc,plugin)=> plugin(acc), {...defaultConfig, ...nextConfig })
-}
+// module.exports =(_phase, {defaultConfig})=>{
+//   const plugins = [withImages]
+//   return plugins.reduce((acc,plugin)=> plugin(acc), {...defaultConfig, ...nextConfig })
+// }
+
+
+module.exports = async (phase) => {
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    reactStrictMode: true,
+    output:"export",
+    basePath: process.env.NODE_ENV === 'production' ? "/next_mui_dashboard" : undefined,
+  
+    assetPrefix: process.env.NODE_ENV === 'production' ? '/next_mui_dashboard/':null, // assetPrefix requires the trailing slash
+    images:{
+      unoptimized: true,
+    }, 
+  }
+
+  const defaultConfig = {}
+  return withPlugins([], nextConfig)(phase, { defaultConfig });
+  // return withPlugins([], nextConfig)(phase, { undefined }); // also works
+};
