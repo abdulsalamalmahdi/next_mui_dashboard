@@ -24,7 +24,9 @@ const userojb = useAuth().user;
     name: userojb.name,
     timezone: 'GTM-7'
   };
-  <Card>
+
+  return (
+<Card>
     <CardContent>
       <Box
         sx={{
@@ -71,4 +73,7 @@ const userojb = useAuth().user;
       </Button>
     </CardActions>
   </Card>
+
+  );
+  
 };
