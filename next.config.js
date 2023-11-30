@@ -5,6 +5,7 @@ module.exports = {
   images:{
     unoptimized: true,
   }, 
+  
   // fastRefresh: true,
   // productionBrowserSourceMaps: false, // Disable source maps in development
   // optimizeFonts: false, // Disable font optimization
