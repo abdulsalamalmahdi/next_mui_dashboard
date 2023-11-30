@@ -1,6 +1,9 @@
 import { createContext, useContext, useEffect, useReducer, useRef } from 'react';
 import PropTypes from 'prop-types';
 
+
+const PREFIX = process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':'';
+
 const HANDLERS = {
   INITIALIZE: 'INITIALIZE',
   SIGN_IN: 'SIGN_IN',
@@ -107,7 +110,7 @@ export const AuthProvider = (props) => {
     if (isAuthenticated) {
       const user = {
         id: '5e86809283e28b96d2d38537',
-        avatar: '/assets/avatars/avatar-anika-visser.png',
+        avatar: `${PREFIX}/avatars/avatar-anika-visser.png`,
         name: 'Anika Visser',
         email: 'anika.visser@devias.io'
       };
@@ -140,7 +143,7 @@ export const AuthProvider = (props) => {
 
     const user = {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
+      avatar: `${PREFIX}/avatars/avatar-anika-visser.png`,
       name: 'Anika Visser',
       email: 'anika.visser@devias.io'
     };
@@ -164,7 +167,7 @@ export const AuthProvider = (props) => {
 
     const user = {
       id: '5e86809283e28b96d2d38537',
-      avatar: '/assets/avatars/avatar-anika-visser.png',
+      avatar: `${PREFIX}/avatars/avatar-anika-visser.png`,
       name: 'Anika Visser',
       email: 'anika.visser@devias.io'
     };
@@ -202,7 +205,7 @@ const user = {
 
   // const user = {
   //   id: '5e86809283e28b96d2d38537',
-  //   avatar: '/assets/avatars/avatar-anika-visser.png',
+  //   avatar: `${PREFIX}/avatars/avatar-anika-visser.png',
   //   name: 'Anika Visser',
   //   email: 'anika.visser@devias.io'
   // };
