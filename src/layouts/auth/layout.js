@@ -7,6 +7,7 @@ import { Logo } from 'src/components/logo';
 
 export const Layout = (props) => {
   const { children } = props;
+const PREFIX = process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':'';
 
   return (
     <Box
@@ -97,7 +98,7 @@ export const Layout = (props) => {
             </Typography>
             <img
               alt=""
-              src="/assets/auth-illustration.svg"
+              src={`${PREFIX}/assets/auth-illustration.svg`}
             />
           </Box>
         </Grid>

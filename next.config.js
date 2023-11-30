@@ -43,7 +43,7 @@ module.exports = async (phase) => {
     output:"export",
     basePath: process.env.NODE_ENV === 'production' ? "/next_mui_dashboard" : undefined,
   
-    assetPrefix: process.env.NODE_ENV === 'production' ? '/next_mui_dashboard/':null, // assetPrefix requires the trailing slash
+    assetPrefix: process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':null, // assetPrefix requires the trailing slash
     images:{
       unoptimized: true,
     }, 
