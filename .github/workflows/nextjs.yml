@@ -28,6 +28,9 @@ jobs:
   # Build job
   build:
     runs-on: ubuntu-latest
+    env:
+      NEXT_PUBLIC_CLIENT_ID: 210103793722-h4js2h1revpu5s9m2uic4u7qfd9lhb5l.apps.googleusercontent.com
+      NEXT_PUBLIC_CLIENT_SECRET: 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
     steps:
       - name: Checkout
         uses: actions/checkout@v3
