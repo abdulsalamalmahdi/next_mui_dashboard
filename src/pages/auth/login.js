@@ -32,8 +32,8 @@ const Page = () => {
   const callbackUrl = searchParams.get("callbackUrl") || "/profile";
   const formik = useFormik({
     initialValues: {
-      email: 'demo@devias.io',
-      password: 'Password123!',
+      email: null,
+      password: null,
       submit: null
     },
     validationSchema: Yup.object({
@@ -236,7 +236,7 @@ const HandleGoogleSignIn = useGoogleLogin({
                   sx={{ mt: 3 }}
                 >
                   <div>
-                    You can use <b>demo@devias.io</b> and password <b>Password123!</b>
+                    
                   </div>
                 </Alert>
               </form>
