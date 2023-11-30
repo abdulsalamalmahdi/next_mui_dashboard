@@ -8,20 +8,22 @@ import {
   Divider,
   Typography
 } from '@mui/material';
+
 import { useAuth } from 'src/hooks/use-auth';
-const PREFIX = process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':'';
 
-const userojb = useAuth().user
-const user = {
-  avatar: `${PREFIX}/assets/avatars/avatar-anika-visser.png`,
-  city: 'Los Angeles',
-  country: 'USA',
-  jobTitle: 'Senior Developer',
-  name: userojb.name,
-  timezone: 'GTM-7'
-};
+export const AccountProfile = () => {
 
-export const AccountProfile = () => (
+  const PREFIX = process.env.NODE_ENV === 'production' ? '/next_mui_dashboard':'';
+
+const userojb = useAuth().user;
+  const user = {
+    avatar: `${PREFIX}/assets/avatars/avatar-anika-visser.png`,
+    city: 'Los Angeles',
+    country: 'USA',
+    jobTitle: 'Senior Developer',
+    name: userojb.name,
+    timezone: 'GTM-7'
+  };
   <Card>
     <CardContent>
       <Box
@@ -69,4 +71,4 @@ export const AccountProfile = () => (
       </Button>
     </CardActions>
   </Card>
-);
+};
